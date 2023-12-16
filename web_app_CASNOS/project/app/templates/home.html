@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'imgs/logo-noText.png' %}" width="80px" alt="Casnos Logo">
+            Casnos
+        </a>
+        <div class="navbar ml-auto">
+            <span class="mr-3 user-info">
+                <i class="fa-solid fa-user" style="color: #044a99;"></i>
+                {{ user_data.nom }} {{ user_data.prenom }}
+            </span>
+            <a class="btn btn-outline-primary my-2 my-sm-0 ms-4 btn-logout" href="{% url 'logout' %}">Déconnecter</a>
+        </div>
+    </div>
+    
+    
+</nav>
+
+
+<div class="container mt-4">
+
+    <form method="get" class= "mt-5 mx-auto" style="max-width: 400px;">
+        {% load crispy_forms_tags %}
+        <div class="form-group">
+            <label for="duration" class="label-text">Choisissez la période:
+            </label>
+            <select class="form-select"  name="duration_id" id="duration">
+                {% for duree in duree_consomations %}
+                    <option value="{{ duree.id }}" {% if selected_duree and selected_duree.id == duree.id %}selected{% endif %}>
+                        {{ duree.start_date }} - {{ duree.end_date }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-filter">Filtre</button>
+    </form>
+
+    {% if selected_duree %}
+    <div class="mt-4">
+        <h3 class>Traitement Spécifique: </h3>
+        <div class="medication-details  p-3 bg-light">
+           <div>Date Début : {{ selected_duree.start_date }}</div>  - <div>Date Fin: {{ selected_duree.end_date }}</div>
+        </div>
+        <div class="container box-table">
+        <div class="table-responsive-sm">
+           <table class="table table-bordered table-hover  mt-4">
+                <thead class="">
+                    <tr>
+                        <th scope="col">Médicament</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Forme</th>
+                        <th scope="col">Dosage</th>
+                        <th scope="col">Conditionnement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for consommation in selected_duree.consomationsmedicament_set.all %}
+                    <tr>
+                        <td>{{ consommation.medicament.nomMedicament }}</td>
+                        <td>{{ consommation.quantity }}</td>
+                        <td>{{ consommation.medicament.forme }}</td>
+                        <td>{{ consommation.medicament.dosage }}</td>
+                        <td>{{ consommation.medicament.conditionnement }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    {% endif %}
+    
+</div>
+
+{% endblock %}

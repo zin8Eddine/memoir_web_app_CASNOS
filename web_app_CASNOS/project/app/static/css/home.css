@@ -1,0 +1,137 @@
+
+    body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+    }
+
+  
+
+    .navbar-brand {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .navbar-brand img {
+        width: 80px;
+        
+    }
+   thead{
+        
+        border-bottom-width:2px ;
+        color: #044a99;
+        
+        background-color: #ffff;
+    }
+    tbody{
+        background-color: #ffff;
+    }
+    
+    .navbar .user-info {
+        font-size: 16px;
+    }
+    
+    .btn-logout {
+        background-color: #fff;
+        color: #007bff;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+        padding: 8px 20px;
+        font-weight: bold;
+    }
+    
+    .container {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin-top: 20px;
+    }
+    
+    
+    
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .btn-filter {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-weight: bold;
+    }
+    
+    .btn-filter:hover {
+        background-color: #0056b3;
+    }
+    
+    
+    
+    
+    .medication-details {
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    } 
+    
+    
+    
+    .btn-primary{
+        
+        width: 100%;
+        margin-top: 5px;
+        border-radius: 20px;
+    }
+    
+    .form-select {
+        text-align: center;
+    }
+    select{
+        
+        position: relative;
+
+    }
+    select.form-control::after {
+        position: absolute;
+        content: "\25BC"; /* Unicode for a downward-pointing triangle/arrow */
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+     /* Ensure the arrow doesn't interfere with select click */
+    }
+  
+    .label-text {
+        font-size: 20px;
+        color: #044a99; /* Change the color to a primary color */
+        display: block;
+        margin-bottom: 10px; /* Adds spacing below the label */
+        text-align: center;
+    }
+    
+    
+    .space-duree{
+        display: inline-block;
+        height: 2px;
+        width: 10%;
+        background-color:#044a99;
+        
+    }
+    
+
+    .box-table{
+    
+        box-shadow: none;
+        background-color: #f8f9fa;
+
+    
+    }
+  
