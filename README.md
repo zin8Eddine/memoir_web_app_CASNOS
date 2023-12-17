@@ -22,11 +22,7 @@ de Technicien Supérieur en Informatique
 
     ```bash
     cd memoir_web_app_CASNOS/web_app_CASNOS
-    ```
-    ```powershell
-    cd .\memoir_web_app_CASNOS\web_app_CASNOS\
-    ```
-    
+    ```    
 3. Create a virtual environment:
 
     ```bash
